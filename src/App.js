@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import './App.css';
 import MonthList from './components/MonthList';
+import UserList from './components/UserList';
 
 class App extends React.Component {
 
@@ -12,7 +13,14 @@ class App extends React.Component {
     return (
       <div className="container-fluid">
         <Header />
-        <MonthList />
+        <div className="row">
+          <div className="col-md-3">
+            <MonthList />
+          </div>
+          <div className="user__block">
+            <UserList />
+          </div>
+        </div>
       </div>
     );
   }
