@@ -15,7 +15,7 @@ const Header = () => {
             <div className="mr-5">
                 <div className="header__about">
                     <div className="row d-flex align-items-center">
-                        <span>by Nikolas Kohno</span>
+                        <span>by Nikolas Kokhno</span>
                         <img className="pl-3" src={require('../../assets/img/about.png')} alt="about img"/>
                     </div>
                 </div>

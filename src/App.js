@@ -8,8 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 const App = () => {
-    const [users, setUsers] = useState([]);
-    const [usersMonth, newArrMonth] = useState({});
+    const [users, stateUsers] = useState([]);
+    const [months, stateMonth] = useState({});
 
     const arrayMonths = [
         "January", "February", "March", "April", "May", "June",
@@ -17,27 +17,28 @@ const App = () => {
 
     const getListUser = (el) => {
         let usersState = [];
-        let usersMonth = userList();
+        let months = getUserList();
     
         el.map(user => {
             if (user.dob) {
-                let month = Number(user.dob[5] + user.dob[6]);
-                let monthIndex = month - 1;
+                let data = new Date(user.dob);
+                let month = data.getMonth();
+                let monthIndex = month;
     
                 usersState.push(user);
-                usersMonth[monthIndex]['count']++;
-                usersMonth[monthIndex]['children'].push(user);
+                months[monthIndex]['count']++;
+                months[monthIndex]['children'].push(user);
             }
             return user;
         });
     
-        return {usersState, usersMonth}
+        return {usersState, months}
     }
 
-    const userList = () => {
+    const getUserList = () => {
         const newUserList = {};
     
-        for (let i = 0; i <= 11; i++) {
+        for (let i = 0; i < arrayMonths.length; i++) {
             newUserList[i] = {
                 children: [],
                 count: 0,
@@ -53,10 +54,10 @@ const App = () => {
             const url = 'https://yalantis-react-school.herokuapp.com/api/task0/users';
             const result = await axios(url);
             
-            let {usersState, usersMonth} = getListUser(result.data);
+            let {usersState, months} = getListUser(result.data);
 
-            setUsers(usersState);
-            newArrMonth(usersMonth);
+            stateUsers(usersState);
+            stateMonth(months);
         };
         fetchData();
     }, []); 
@@ -67,7 +68,7 @@ const App = () => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-2 pt-5 month__list">
-                        <ListItems items={usersMonth} handlerOnMouseOver={setUsers} />
+                        <ListItems items={months} handlerOnMouseOver={stateUsers} />
                     </div>
                     <div className="pt-5 col-md-10 users-section">
                         <ListUsers users={users} />
