@@ -1,0 +1,16 @@
+.user__list {
+    list-style: none;
+}
+
+.user__list li img {
+    height: 35px;
+}
+
+.user__list li {
+    background: rgb(240, 240, 240);
+    color: #222;
+    border: 1vh solid #fff;
+    padding: 1vh;
+    font-size: 16px;
+    font-weight: 900;
+}

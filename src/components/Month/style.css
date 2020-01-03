@@ -1,0 +1,33 @@
+.month__list {
+    background: rgb(240, 240, 240);
+    height: 90vh;
+}
+
+.blue {
+    background: linear-gradient(rgb(18, 1, 116), rgb(61, 27, 255));
+}
+
+.green {
+    background: linear-gradient(rgb(1, 116, 20), rgb(35, 255, 27));
+}
+
+.red {
+    background: linear-gradient(rgb(116, 1, 7), rgb(255, 27, 57));
+}
+
+.grey {
+    background: linear-gradient(rgb(73, 73, 73), rgb(201, 201, 201));
+}
+
+.list__month li {
+    list-style: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 900;
+    margin: 1vh;
+    padding: 1vh;
+    border-radius: 0.5vh;
+    align-items: center;
+    text-align: center;
+}
